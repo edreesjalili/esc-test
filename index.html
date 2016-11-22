@@ -1,15 +1,34 @@
 <!doctype html>
-<html>
+<html ng-app="socialwallApp">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Bullring Birmingham</title>
         <link rel="stylesheet" href="public/css/foundation.css">
+        <link rel="stylesheet" href="public/css/app.css">
+        <script type="text/javascript" src="data/posts.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script type="text/javascript" src="public/js/app.js"></script>
     </head>
     <body>
-        
+        <div ng-controller="cardListController as cardlist">
+            <div class="row" id="filters">
+            </div>
+            <div class="row small-up-1 medium-up-3 large-up-3">
+                <div ng-repeat="post in cardlist.posts">
+                    <div class="columns small-12 medium-6 large-4">
+                        <div class="card">
+                            <div ng-if="post.item_data.image_url" class="image">
+                                <img  ng-src="{{post.item_data.image_url}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <script type="text/javascript" src="public/js/vendor/jquery.js"></script>
         <script type="text/javascript" src="public/js/vendor/foundation.min.js"></script>
+        <script type="text/javascript" src="public/js/foundation.app.js"></script>
     </body>
 </html>
