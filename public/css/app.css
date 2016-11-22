@@ -4,10 +4,10 @@ html, body {
 
 .card {
   font-family: 'Roboto', sans-serif;
-  overflow: hidden;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   color: #272727;
-  border-radius: 2px; }
+  border-radius: 2px; 
+  margin: 0 0 10px 0;}
   .card .title {
     line-height: 3rem;
     font-size: 1.5rem;
@@ -38,3 +38,10 @@ html, body {
     .card .image img {
       border-radius: 2px 2px 0 0; 
       padding: 20px;}
+  .card .card-source-tag {
+      position: relative;
+      top: -20;
+      left: 20px;
+      margin: 20px 0 -50px 0;
+      z-index: 999;}
+
