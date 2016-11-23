@@ -1,36 +1,34 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
+@import url('https://fonts.googleapis.com/css?family=Kanit:500');
 html, body {
   background: #FAFAFA; }
 
 .black {
     background-color: black;}
 
+.red-text, .card a {
+    color:#ec3621;}
+
 .card {
   font-family: 'Roboto', sans-serif;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   color: #272727;
   border-radius: 2px; 
   margin:0 auto;
   margin-bottom: 10px;}
-  .card .title {
-    line-height: 3rem;
-    font-size: 1.5rem;
-    font-weight: 300; }
   .card .content {
-    padding: 1.3rem;
+    padding: 20px;
     font-weight: 300;
-    border-radius: 0 0 2px 2px; }
+    border-radius: 0 0 2px 2px; 
+    color: #969696}
   .card p {
     margin: 0; }
-  .card .action {
-    border-top: 1px solid rgba(160, 160, 160, 0.2);
-    padding: 1.3rem; }
   .card a {
-    color: #ffab40;
-    margin-right: 1.3rem;
     transition: color 0.3s ease;
-    text-transform: uppercase;
-    text-decoration: none; }
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0.005em;}
   .card .image {
     position: relative; }
     .card .image .title {
@@ -57,14 +55,29 @@ html, body {
         width: 100%;
         height: 100%;
         position: absolute;
-        bottom: 0;
         border-radius: 5px;}
-    .manual-tag .manual-tag-text{
-        color: white;}
-    .card-source-tag .tag-logo {
+    .card-source-tag .tag-logo, .manual-tag .manual-tag-text{
         position: absolute;
         bottom: 5px;
         left: 5px;}
+    .manual-tag .manual-tag-text{
+        font-family: 'Noto Serif', serif;
+        font-size: 16px;
+        line-height: 16px;
+        bottom: 15px;
+        left: 6px;
+        color: white;}
+
+    .content.no-top-pad {
+        padding-top: 0;}
+    .content.twitter-user{
+        margin: 30px 0 0 0;
+        text-align: center;
+        font-family: 'Kanit', sans-serif;
+        font-size: 1.25em;}
+    .content.tweet {
+        text-align: center;
+        padding-bottom: 40px;}
       
 
 .deckgrid[deckgrid]::before {
