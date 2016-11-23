@@ -1,0 +1,38 @@
+
+    <div class="card">
+        <!-- Start twitter card -->
+        <div ng-if="card.service_slug === 'twitter'" class="card-source-tag black">
+
+        </div>
+        <!-- End twitter card -->
+
+        
+        <!-- Start instagram card -->
+        <div ng-if="card.service_slug === 'instagram'" class="card-source-tag black">
+
+        </div>
+        <!-- End instagram card -->
+
+        
+        <!-- Start manual card -->
+        <div ng-if="card.service_slug === 'manual'" class="card-source-tag">
+
+        </div>
+        <!-- End manual card -->
+        <div class="card-source-tag" ng-class="{black : card.service_slug === 'twitter' || card.service_slug === 'instagram'}">
+            <div ng-if="card.service_slug === 'manual'" class="manual-tag">
+                <span class="manual-tag-text">AFF</span>
+            </div>
+            <img ng-if="card.service_slug === 'twitter'" class="tag-logo" width="32" src="public/img/twitter-32.png">
+            <img ng-if="card.service_slug === 'instagram'" class="tag-logo" width="32" src="public/img/instagram-32.png">
+        </div>
+        <div ng-if="card.service_slug !== 'twitter'" class="image">
+            <img ng-if="card.service_slug === 'manual'" ng-src="{{card.item_data.image_url}}">
+            <img ng-if="card.service_slug === 'instagram'" ng-src="{{card.item_data.image.large}}">
+        </div>
+        <div class="content">
+            some text
+        </div>
+    </div>
+
+                

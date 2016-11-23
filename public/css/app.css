@@ -2,12 +2,16 @@
 html, body {
   background: #FAFAFA; }
 
+.black {
+    background-color: black;}
+
 .card {
   font-family: 'Roboto', sans-serif;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   color: #272727;
   border-radius: 2px; 
-  margin: 0 0 10px 0;}
+  margin:0 auto;
+  margin-bottom: 10px;}
   .card .title {
     line-height: 3rem;
     font-size: 1.5rem;
@@ -38,10 +42,56 @@ html, body {
     .card .image img {
       border-radius: 2px 2px 0 0; 
       padding: 20px;}
-  .card .card-source-tag {
-      position: relative;
-      top: -20;
-      left: 20px;
-      margin: 20px 0 -50px 0;
-      z-index: 999;}
+    .card .card-source-tag {
+        text-align: center;
+        position: relative;
+        top: -10px;
+        left: 20px;
+        margin: 20px 0 -50px 0;
+        z-index: 999;
+        max-width: 42px;
+        min-height: 60px;
+        border-radius: 5px;}
+    .card-source-tag .manual-tag{
+        background-color: #ec3621;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        border-radius: 5px;}
+    .manual-tag .manual-tag-text{
+        color: white;}
+    .card-source-tag .tag-logo {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;}
+      
 
+.deckgrid[deckgrid]::before {
+    content: '3 .column.column-1-3';
+    font-size: 0;
+    visibility: hidden;}
+.deckgrid .column {
+    float: left;}
+.deckgrid .column-1-1 {
+    width: 100%;}
+.deckgrid .column-1-2 {
+    width: 50%;}
+.deckgrid .column-1-3 {
+    width: 33.3%;}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+    .deckgrid[deckgrid]::before {
+    content: '1 .column.column-1-1';}
+}
+
+@media (min-width: 660px) {
+    .deckgrid[deckgrid]::before {
+    content: '2 .column.column-1-2';}
+}
+
+@media (min-width: 950px) {
+    .deckgrid[deckgrid]::before {
+    content: '3 .column.column-1-3';}
+}
