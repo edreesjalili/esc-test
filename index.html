@@ -10,8 +10,26 @@
     <body>
         <div ng-controller="cardListController as cardlist">
             <div class="row" id="filters">
+                <div class="filter-options row hide-for-small">
+                    <div ng-click="cardlist.updateFilters('manual')" ng-class="{active : cardlist.activeFilter('manual')}" class="filter-option columns large-4 medium-4">AFF</div>
+                    <div ng-click="cardlist.updateFilters('instagram')" ng-class="{active : cardlist.activeFilter('instagram')}" class="filter-option columns large-4 medium-4">Instagram</div>
+                    <div ng-click="cardlist.updateFilters('twitter')" ng-class="{active : cardlist.activeFilter('twitter')}" class="filter-option columns large-4 medium-4">Twitter</div>
+                </div>
+                <div class="row filter-options hide-for-medium hide-for-large">
+                    <div ng-click="cardlist.toggleFilters()" class="filter-option columns small-12">Filters</div>
+                    <div ng-click="cardlist.updateFilters('manual')" ng-class="{active : cardlist.activeFilter('manual')}" class="filter-option columns small-12" ng-show="cardlist.visibleFilters">AFF</div>
+                    <div ng-click="cardlist.updateFilters('instagram')" ng-class="{active : cardlist.activeFilter('instagram')}" class="filter-option columns small-12" ng-show="cardlist.visibleFilters">Instagram</div>
+                    <div ng-click="cardlist.updateFilters('twitter')" ng-class="{active : cardlist.activeFilter('twitter')}" class="filter-option columns small-12" ng-show="cardlist.visibleFilters">Twitter</div>
+                </div>
+                
             </div>
-            <div class="row deckgrid" source="cardlist.posts" cardTemplate="card-template.html"  deckgrid></div>
+            <div class="row deckgrid" source="cardlist.filteredPosts" cardTemplate="card-template.html"  deckgrid></div>
+            <div class="row">
+                <div class="columns large-4 medium-4 small-12 small-centered">
+                    <a class="button" id="loadMoreButton" ng-click="cardlist.loadMorePosts()" ng-class="{disable : cardlist.disableLoad}">Load More</a>
+                </div>
+            </div>
+
         </div>
 
         <!-- js -->

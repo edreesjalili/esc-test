@@ -1,6 +1,6 @@
 
 <!-- Start twitter card -->
-<div ng-if="card.service_slug === 'twitter'" class="card">
+<div ng-if="card.service_slug === 'twitter'" class="card" data-slug="twitter">
     <div class="card-source-tag black">
         <img class="tag-logo" width="32" src="public/img/twitter-32.png">
     </div>
@@ -14,16 +14,14 @@
 
     
 <!-- Start instagram card -->
-<div ng-if="card.service_slug === 'instagram'" class="card">
+<div ng-if="card.service_slug === 'instagram'" class="card" data-slug="instagram">
     <div class="card-source-tag black">
         <img class="tag-logo" width="32" src="public/img/instagram-32.png">
     </div>
-    
     <div class="image">
         <img ng-src="{{card.item_data.image.large}}">
     </div>
-
-    <div class="content">
+    <div class="content instagram-user">
         {{card.item_data.user.username}}
     </div>
 
@@ -34,7 +32,7 @@
 
     
 <!-- Start manual card -->
-<div ng-if="card.service_slug === 'manual'" class="card">
+<div ng-if="card.service_slug === 'manual'" class="card" data-slug="manual">
     <div  class="card-source-tag">
         <div class="manual-tag">
             <span class="manual-tag-text">AFF</span>
