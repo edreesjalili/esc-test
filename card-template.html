@@ -7,7 +7,7 @@
     <div class="content twitter-user">
         {{card.item_data.user.username}}
     </div>
-    <div class="content tweet" ng-bind-html="card.item_data.tweet" linkify>
+    <div class="content tweet" ng-bind-html="card.item_data.tweet" linkify="twitter">
     </div>
 </div>
 <!-- End twitter card -->
@@ -19,13 +19,13 @@
         <img class="tag-logo" width="32" src="public/img/instagram-32.png">
     </div>
     <div class="image">
-        <img ng-src="{{card.item_data.image.large}}">
+        <img ng-src="public/img/spinner.gif" lazy-img="{{card.item_data.image.large}}">
     </div>
     <div class="content instagram-user">
         {{card.item_data.user.username}}
     </div>
 
-    <div class="content" ng-bind-html="card.item_data.caption"></div>
+    <div class="content" ng-bind-html="card.item_data.caption" linkify="twitter"></div>
     
 </div>
 <!-- End instagram card -->
@@ -40,7 +40,7 @@
     </div>
     
     <div class="image">
-        <img ng-src="{{card.item_data.image_url}}">
+        <img ng-src="public/img/spinner.gif" lazy-img="{{card.item_data.image_url}}">
     </div>
     <div class="content no-top-pad">
         {{card.item_data.text}}

@@ -30,7 +30,8 @@ html, body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     letter-spacing: 0.005em;}
   .card .image {
-    position: relative; }
+    position: relative; 
+    text-align: center;}
     .card .image .title {
       position: absolute;
       bottom: 0;

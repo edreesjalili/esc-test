@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module("socialwallApp", ["akoenig.deckgrid", "ngSanitize", "linkify"])
+        .module("socialwallApp", ["akoenig.deckgrid", "ngSanitize", "linkify", "angularLazyImg"])
         .filter("postFilter", postFilter)
         .controller("cardListController", CardListController);
 })();
@@ -20,7 +20,7 @@ function postFilter() {
 function CardListController($filter) {
     var vm = this;
     vm.filters = [];
-    vm.posts = parseTweets(shuffle(getPosts().items));
+    vm.posts = shuffle(getPosts().items);
     vm.filteredPosts = $filter('postFilter')(vm.posts, vm.filters);
     vm.disableLoad = false;
     vm.visibleFilters = false;
@@ -36,12 +36,14 @@ function CardListController($filter) {
     return o;
     }
 
+    /* no longer needed due to linkify module and added custom parsing for instagram in angular-linkify.js
     function parseTweets(tweets) {
         for(var i = 0; i < tweets.length; i++) {
             if(tweets[i].service_slug === "instagram") {
                 tweets[i].item_data.caption = parseInstagramMessage(tweets[i]);
                 continue;
-            } else if (tweets[i].service_slug === "manual") continue;
+            }
+            else if (tweets[i].service_slug === "manual") continue;
             //fixes @s
             tweets[i].item_data.tweet = tweets[i].item_data.tweet.replace(/(@([A-Z]*[a-z]*[0-9]*)*)/g, function(a, b) {
                 return '<span class="red-text">'+b+'</span>';
@@ -59,6 +61,7 @@ function CardListController($filter) {
                 return '<span class="red-text">'+b+'</span>';
             });
     }
+    */
 
     function updateFilters(filterOption) {
         var i;
@@ -76,7 +79,7 @@ function CardListController($filter) {
     function loadMorePosts() {
         if (vm.disableLoad) return;
         vm.disableLoad = true;
-        (parseTweets(shuffle(getPosts().items))).forEach(function(post) {
+        (shuffle(getPosts().items)).forEach(function(post) {
             vm.posts.push(post);
         });
         
