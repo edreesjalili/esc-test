@@ -20,7 +20,7 @@ function postFilter() {
 function CardListController($filter) {
     var vm = this;
     vm.filters = [];
-    vm.posts = shuffle(getPosts().items);
+    vm.posts = sortPosts(getPosts().items);
     vm.filteredPosts = $filter('postFilter')(vm.posts, vm.filters);
     vm.disableLoad = false;
     vm.visibleFilters = false;
@@ -31,8 +31,10 @@ function CardListController($filter) {
     vm.toggleFilters = toggleFilters;
 
     
-    function shuffle(o){
-    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    function sortPosts(o){
+    o.sort(function(a, b) {
+        return a.item_published - b.item_published;
+    });
     return o;
     }
 
@@ -79,7 +81,7 @@ function CardListController($filter) {
     function loadMorePosts() {
         if (vm.disableLoad) return;
         vm.disableLoad = true;
-        (shuffle(getPosts().items)).forEach(function(post) {
+        (sortPosts(getPosts().items)).forEach(function(post) {
             vm.posts.push(post);
         });
         
